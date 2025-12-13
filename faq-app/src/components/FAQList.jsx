@@ -1,5 +1,6 @@
 import React from 'react'
 import FAQItem from './FAQItem'
+import FAQData from '../data/FAQData'
 
 const FAQList = ({ toggleDarkMode, isDarkMode }) => {
   return (
@@ -27,7 +28,14 @@ const FAQList = ({ toggleDarkMode, isDarkMode }) => {
           </button>
         </div>
       </div>
-      <FAQItem />
+      <div className='bg-white/80 dark:bg-gray-800/80 rounded-xl shadow-lg 
+      border border-indigo-100/50 dark:border-indigo-900/30 overflow-hidden
+      transition-all duration-300'>
+        {FAQData.map((item) => (
+          <FAQItem key={item.id} item={item} />
+        ))}
+
+      </div>
     </div>
   )
 }

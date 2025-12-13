@@ -1,4 +1,4 @@
-const faqData = [
+const FAQData = [
     {
         id: 1,
         question: 'What is React?',
@@ -26,3 +26,4 @@ const faqData = [
         answer: 'Props are data passed down from a parent component (immutable/read-only). State is data managed internally by a component (mutable/can be changed).'
     }
 ]
+export default FAQData;
