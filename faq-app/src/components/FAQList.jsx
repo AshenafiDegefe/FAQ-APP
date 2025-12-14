@@ -35,8 +35,8 @@ const FAQList = ({ toggleDarkMode, isDarkMode }) => {
           hover:to-indigo-700 rounded-lg shadow-sm hover:shadow-md focus:outline-none 
           focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all duration-300 cursor-pointer'
           onClick={toggleExpandAll}>
-            <i className='bx bx-collapse-alt text-lg'></i>
-            <span>Expand All</span>
+            <i className={`bx bx-${expandAll ? 'collapse-alt' : 'expand-alt'} text-lg`}></i>
+            <span>{expandAll ? 'Collapse All' : 'Expand All'}</span>
           </button>
           <button  onClick={toggleDarkMode} className='w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r
           from-gray-200 to-gray-300 text-gray-700 hover:shadow-md focus:outline-none
