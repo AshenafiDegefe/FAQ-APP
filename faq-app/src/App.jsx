@@ -1,13 +1,17 @@
 import FAQList from "./components/FAQList"
 import { useState, useEffect } from 'react'
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('isDarkMode')
+    return savedTheme ? JSON.parse(savedTheme) : false
+  });
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark'); 
     } else {
       document.documentElement.classList.remove('dark');
     }
+    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode))
   }, [isDarkMode]);
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);

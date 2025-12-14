@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import FAQItem from './FAQItem'
 import FAQData from '../data/FAQData'
 
@@ -21,6 +21,16 @@ const FAQList = ({ toggleDarkMode, isDarkMode }) => {
     setExpandAll((prev) => !prev);
     setOpenId(null);
   }
+  useEffect(() => {
+    if(openId && typeof window !== 'undefined') {
+      setTimeout(() => {
+        const element = document.getElementById(`faq-item-${openId}`)
+        if(element) {
+          element.scrollIntoView({behavior: 'smooth', block: 'start'})
+        }
+      })
+    }
+  }, [openId])
   return (
     <div className='max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
       <div className='flex flex-col sm:flex-row justify-between items-center
